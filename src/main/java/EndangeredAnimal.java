@@ -11,9 +11,19 @@ public class EndangeredAnimal {
 
   public EndangeredAnimal(String name, String health, String age) {
     this.name = name;
+    endangered = true;
     this.id = id;
     this.health = health;
     this.age = age;
+    this.species = species;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getId() {
+    return id;
   }
 
   public String getHealth() {
@@ -24,12 +34,8 @@ public class EndangeredAnimal {
     return age;
   }
 
-  public String getName() {
-    return name;
-  }
-
-  public int getId() {
-    return id;
+  public int getSpecies() {
+    return species;
   }
 
   @Override

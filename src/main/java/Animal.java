@@ -5,11 +5,8 @@ import java.util.List;
 public class Animal {
   public String name;
   public int id;
-
-  public Animal(String name) {
-    this.name = name;
-    this.id = id;
-  }
+  public boolean endangered;
+  public String species;
 
   public String getName() {
     return name;
@@ -19,21 +16,31 @@ public class Animal {
     return id;
   }
 
+  public String getSpecies() {
+    return species;
+  }
+
+  public boolean isEndangered() {
+    return endangered;
+  }
+
   @Override
   public boolean equals(Object otherAnimal) {
     if(!(otherAnimal instanceof Animal)) {
       return false;
     } else {
       Animal newAnimal = (Animal) otherAnimal;
-      return this.getName().equals(newAnimal.getName());
+      return this.getName().equals(newAnimal.getName() && this.getId().equals(newAnimal.getName() && this.getSpecies().equals(newAnimal.getName());
     }
   }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO animals (name) VALUES (:name);";
+      String sql = "INSERT INTO animals (name, species, endangered) VALUES (:name, :species, :endangered)";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
+        .addParameter("species", this.species)
+        .addParameter("endangered", this.endangered)
         .executeUpdate()
         .getKey();
     }

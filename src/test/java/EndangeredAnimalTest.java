@@ -23,7 +23,7 @@ public class EndangeredAnimalTest {
 
   @Test
   public void save_assignsIdAndSavesObjectToDatabase() {
-    EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox");
+    EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
     testEndangeredAnimal.save();
     assertTrue(testEndangeredAnimal.all().get(0).equals(testEndangeredAnimal));
   }

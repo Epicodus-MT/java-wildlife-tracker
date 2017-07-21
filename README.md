@@ -85,8 +85,11 @@ $gradle run
 ```
 localhost:4567
 ```
+## Specifications
+_App tracks two categories of wildlife - animals & endangered-animals
+
 ## Edited Code from Original Project
-  New files: endangered-animals.vtl, endangered-animals-form.vtl, animals.vtl, ...
+  _New files: endangered-animals.vtl, endangered-animals-form.vtl, animals.vtl, ..._
 
 ## Known Bugs
 _No known bugs at this time_

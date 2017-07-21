@@ -14,11 +14,8 @@ public class SightingTest {
 
   @Test
   public void sighting_instantiatesCorrectly_true() {
-    Animal testAnimal = new Animal("Deer");
-    testAnimal.save();
-    Sighting testSighting = new Sighting(testAnimal.getId(), "45.472428, -121.946466", "Ranger Avery");
-    assertEquals(true, testSighting instanceof Sighting);
-  }
+    assertTrue(testSighting instanceof Sighting);
+    }
 
   @Test
   public void equals_returnsTrueIfLocationAndDescriptionAreSame_true() {
