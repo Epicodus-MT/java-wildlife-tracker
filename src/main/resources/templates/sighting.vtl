@@ -1,0 +1,22 @@
+<h3>Animals Sighted</h3>
+<h4>Endangered Animals</h4>
+#if($sighting.getEndangeredAnimals().size() > 0)
+  <ul>
+    #foreach($animal in $sighting.getEndangeredAnimals())
+
+    #end
+  </ul>
+#else
+  <h5>No endangered animals sighted</h5>
+#end
+
+<h4>Regular Animals</h4>
+#if($sighting.getRegularAnimals().size() > 0)
+<ul>
+  #foreach($common_animal in $sighting.getRegularAnimals())
+
+  #end
+</ul>
+#else
+  <h5>No common animals sighted</h5>
+#end
