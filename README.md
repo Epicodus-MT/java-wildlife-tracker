@@ -8,8 +8,7 @@
 
 _The Forest Service is considering a proposal from a timber company to clearcut a nearby forest of Douglas Fir. Before this proposal may be approved, they must complete an environmental impact study. This application was developed to allow Rangers to track wildlife sightings in the area._
 
-## Specifications
-
+<!-- ## Specifications -->
 
 
 
@@ -35,6 +34,9 @@ java-wildlife-tracker/
 |    |          └──templates/
 |    |               └──animal-form.vtl
 |    |               └──animal.vtl
+|    |               └──animals.vtl
+|    |               └──endangered_animal-form.vtl
+|    |               └──endangered_animal.vtl
 |    |               └──endangered_animals.vtl
 |    |               └──error.vtl
 |    |               └──index.vtl
@@ -57,7 +59,7 @@ To create the necessary databases:
 * _Clone this repository:_
 ```
 $ cd ~/Desktop
-$ git clone https://github.com/Epicodus-MT/wildlife-tracker.git
+$ git clone https://github.com/Epicodus-MT/java-wildlife-tracker.git
 $ cd wildlife-tracker
 ```
 * _Run Postgres with terminal command:_
