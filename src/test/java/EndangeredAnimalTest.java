@@ -12,11 +12,11 @@ public class EndangeredAnimalTest {
   @Test
   public void endangeredAnimal_instantiatesCorrectly_true() {
     EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
-    assertTrue (testEndangeredAnimal instanceof EndangeredAnimal);
+    assertEquals(true, testEndangeredAnimal instanceof EndangeredAnimal);
   }
 
   @Test
-  public void getName_returnsHealthAttribute_true() {
+  public void getHealth_returnsHealthAttribute_true() {
     EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
     assertEquals("Healthy", testEndangeredAnimal.getHealth());
   }
@@ -25,7 +25,8 @@ public class EndangeredAnimalTest {
   public void save_assignsIdAndSavesObjectToDatabase() {
     EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
     testEndangeredAnimal.save();
-    assertTrue(testEndangeredAnimal.all().get(0).equals(testEndangeredAnimal));
+    EndangeredAnimal savedEndangeredAnimal = EndangeredAnimal.all().get(0);
+    assertEquals(testEndangeredAnimal.getId(), savedEndangeredAnimal.getId());
   }
 
   @Test

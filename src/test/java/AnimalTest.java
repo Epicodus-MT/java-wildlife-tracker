@@ -4,18 +4,15 @@ import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
-import java.sql.*;
-import java.util.*;
-import java.text.*;
 
 public class AnimalTest {
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
   @Test
-  public void animal_instantiatesCorrectly_true() {
+  public void animal_instantiatesCorrectly_false() {
     Animal testAnimal = new Animal("Deer");
-    assertTrue(testAnimal instanceof Animal);
+    assertEquals(true, testAnimal instanceof Animal);
   }
 
   @Test

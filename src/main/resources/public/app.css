@@ -1,0 +1,9 @@
+body {
+  background-image: url(/tree-pattern.jpeg);
+  background-repeat: repeat;
+  font-family: sans-serif;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+}

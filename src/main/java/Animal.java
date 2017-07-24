@@ -2,11 +2,17 @@ import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Animal {
+  private static String TABLE_NAME = "animals";
+
   public String name;
   public int id;
-  public boolean endangered;
-  public String species;
+
+  public Animal(String name) {
+    this.name = name;
+    this.id = id;
+  }
 
   public String getName() {
     return name;
@@ -16,31 +22,21 @@ public class Animal {
     return id;
   }
 
-  public String getSpecies() {
-    return species;
-  }
-
-  public boolean isEndangered() {
-    return endangered;
-  }
-
   @Override
   public boolean equals(Object otherAnimal) {
     if(!(otherAnimal instanceof Animal)) {
       return false;
     } else {
       Animal newAnimal = (Animal) otherAnimal;
-      return this.getName().equals(newAnimal.getName() && this.getId().equals(newAnimal.getName() && this.getSpecies().equals(newAnimal.getName());
+      return this.getName().equals(newAnimal.getName());
     }
   }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO animals (name, species, endangered) VALUES (:name, :species, :endangered)";
+      String sql = "INSERT INTO " + TABLE_NAME + " (name) VALUES (:name);";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
-        .addParameter("species", this.species)
-        .addParameter("endangered", this.endangered)
         .executeUpdate()
         .getKey();
     }
@@ -48,7 +44,7 @@ public class Animal {
 
   public static List<Animal> all() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM animals;";
+      String sql = "SELECT * FROM " + TABLE_NAME + ";";
       return con.createQuery(sql)
         .executeAndFetch(Animal.class);
     }
@@ -56,7 +52,7 @@ public class Animal {
 
   public static Animal find(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM animals WHERE id=:id;";
+      String sql = "SELECT * FROM " + TABLE_NAME + " WHERE id=:id;";
       Animal animal = con.createQuery(sql)
         .addParameter("id", id)
         .executeAndFetchFirst(Animal.class);
@@ -66,7 +62,7 @@ public class Animal {
 
   public void updateName(String name) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE animals SET name=:name WHERE id=:id;";
+      String sql = "UPDATE " + TABLE_NAME + " SET name=:name WHERE id=:id;";
       con.createQuery(sql)
         .addParameter("id", id)
         .addParameter("name", name)
@@ -76,7 +72,7 @@ public class Animal {
 
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "DELETE FROM animals WHERE id=:id;";
+      String sql = "DELETE FROM " + TABLE_NAME + " WHERE id=:id;";
       con.createQuery(sql)
         .addParameter("id", id)
         .executeUpdate();
@@ -92,5 +88,4 @@ public class Animal {
       return sightings;
     }
   }
-
 }

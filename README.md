@@ -8,12 +8,6 @@
 
 _The Forest Service is considering a proposal from a timber company to clearcut a nearby forest of Douglas Fir. Before this proposal may be approved, they must complete an environmental impact study. This application was developed to allow Rangers to track wildlife sightings in the area._
 
-<!-- ## Specifications -->
-
-
-
-
-
 ## What's included
 Within the repository you'll find the following directories and files:
 
@@ -86,10 +80,14 @@ $gradle run
 localhost:4567
 ```
 ## Specifications
-_App tracks two categories of wildlife - animals & endangered-animals
+_App tracks two categories of wildlife - animals & endangered-animals_
 
-## Edited Code from Original Project
-  _New files: endangered-animals.vtl, endangered-animals-form.vtl, animals.vtl, ..._
+## Changes Made to Original Project
+* _specified ID types_
+* _file name change to: endangered_animals.vtl_
+* _show age and health in homepage results_
+* _added constants to EndangeredAnimals.java and Animals.java files_
+* _refactored EndangeredAnimals.java_
 
 ## Known Bugs
 _No known bugs at this time_
