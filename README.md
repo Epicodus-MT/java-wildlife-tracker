@@ -86,9 +86,10 @@ _App tracks two categories of wildlife - animals & endangered-animals_
 ## Changes Made to Original Project
 * _specified ID types_
 * _file name change to: endangered_animals.vtl_
-* _show age and health in homepage results_
+* _change format for animal.vtl template_
 * _added constants to EndangeredAnimals.java and Animals.java files_
-* _refactored EndangeredAnimals.java_
+* _added Timestamp to database/README.md setup (and made changes to Timestamp related files)_
+* _added boolean to identify endangered vs. non-endangered animals_
 
 ## Known Bugs
 _No known bugs at this time_
