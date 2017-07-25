@@ -2,18 +2,23 @@ import org.sql2o.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 public class Sighting {
   private int animal_id;
   private String location;
   private String ranger_name;
   private int id;
+  private Date time;
+  private boolean isEndangered;
 
-  public Sighting(int animal_id, String location, String ranger_name) {
+  public Sighting(int animal_id, String location, String ranger_name, boolean isEndangered) {
     this.animal_id = animal_id;
     this.location = location;
     this.ranger_name = ranger_name;
     this.id = id;
+    this.time = new Date();
+    this.isEndangered = isEndangered;
   }
 
   public int getId() {
@@ -32,6 +37,14 @@ public class Sighting {
     return ranger_name;
   }
 
+  public Date getTime() {
+    return time;
+  }
+
+  public boolean isEndangered() {
+    return isEndangered;
+  }
+
   @Override
   public boolean equals(Object otherSighting) {
     if(!(otherSighting instanceof Sighting)) {
@@ -44,11 +57,13 @@ public class Sighting {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO sightings (animal_id, location, ranger_name) VALUES (:animal_id, :location, :ranger_name);";
+      String sql = "INSERT INTO sightings (animal_id, location, ranger_name, time, is_endangered) VALUES (:animal_id, :location, :ranger_name, :time, :is_endangered);";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("animal_id", this.animal_id)
         .addParameter("location", this.location)
         .addParameter("ranger_name", this.ranger_name)
+        .addParameter("time", this.time)
+        .addParameter("is_endangered", this.isEndangered)
         .throwOnMappingFailure(false)
         .executeUpdate()
         .getKey();

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EndangeredAnimal {
-  private static String TABLE_NAME = "endangered_animals";
+  private static final String TABLE_NAME = "endangered_animals";
 
   public String name;
   public int id;
@@ -96,7 +96,7 @@ public class EndangeredAnimal {
 
   public List<Sighting> getSightings() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM sightings WHERE animal_id=:id;";
+      String sql = "SELECT * FROM sightings WHERE animal_id=:id AND is_endangered=true;";
         List<Sighting> sightings = con.createQuery(sql)
           .addParameter("id", id)
           .executeAndFetch(Sighting.class);

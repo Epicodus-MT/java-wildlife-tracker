@@ -4,7 +4,7 @@ import java.util.List;
 
 
 public class Animal {
-  private static String TABLE_NAME = "animals";
+  private static final String TABLE_NAME = "animals";
 
   public String name;
   public int id;
@@ -81,7 +81,7 @@ public class Animal {
 
   public List<Sighting> getSightings() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM sightings WHERE animal_id=:id;";
+      String sql = "SELECT * FROM sightings WHERE animal_id=:id AND is_endangered=false;";
         List<Sighting> sightings = con.createQuery(sql)
           .addParameter("id", id)
           .executeAndFetch(Sighting.class);
