@@ -25,6 +25,8 @@ public class App {
       String rangerName = request.queryParams("rangerName");
       int animalIdSelected = Integer.parseInt(request.queryParams("endangeredAnimalSelected"));
       String latLong = request.queryParams("latLong");
+      String health = request.queryParams("health");
+      String age = request.queryParams("age");
       Sighting sighting = new Sighting(animalIdSelected, latLong, rangerName, true);
       sighting.save();
       model.put("sighting", sighting);

@@ -1,6 +1,6 @@
 # _Wildlife Tracker_
 
-#### _An app for the forest service to track animals for an environmental impact study, July 14, 2017_
+#### _An app for the forest service to track animals for an environmental impact study, July 21, 2017_
 
 #### By _**Mara Timberlake**_
 
@@ -68,7 +68,7 @@ $ psql
 * `\c wildlife_tracker;`
 * `CREATE TABLE animals (id serial PRIMARY KEY, name varchar);`
 * `CREATE TABLE endangered_animals (id serial PRIMARY KEY, name varchar, health varchar, age varchar);`
-* `CREATE TABLE sightings (id serial PRIMARY KEY, animal_id int, location varchar, ranger_name varchar, time timestamp, boolean is_endangered);`
+* `CREATE TABLE sightings (id serial PRIMARY KEY, animal_id int, location varchar, ranger_name varchar, time timestamp, is_endangered boolean);`
 * `CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;`
 ```
 * _Return to original tab where repository was cloned and run gradle:_
@@ -89,6 +89,7 @@ _App tracks two categories of wildlife - animals & endangered-animals_
 * _added constants to EndangeredAnimals.java and Animals.java files_
 * _added Timestamp to database/README.md setup (and made changes to Timestamp related files)_
 * _added boolean to identify endangered vs. non-endangered animals_
+* _move "Additional Info for Endangered Animals" to homepage_
 
 ## Known Bugs
 _No known bugs at this time_
