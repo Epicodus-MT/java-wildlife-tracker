@@ -29,13 +29,12 @@ java-wildlife-tracker/
 |    |          └──templates/
 |    |               └──animal-form.vtl
 |    |               └──animal.vtl
-|    |               └──animals.vtl
-|    |               └──endangered_animal-form.vtl
 |    |               └──endangered_animal.vtl
-|    |               └──endangered_animals.vtl
 |    |               └──error.vtl
 |    |               └──index.vtl
 |    |               └──layout.vtl
+|    |               └──sighting.vtl
+|    |               └──sightings.vtl
 |    |               └──success.vtl
 |    └── test/
 │         └── java/
@@ -62,7 +61,7 @@ $ cd wildlife-tracker
 $ postgres
 ```
 * _Open a new tab in terminal by pressing [command ⌘] + [T]_
-* _In the new tab, create 'sales_tracker' database:_
+* _In the new tab, create 'wildlife_tracker' database:_
 ```
 $ psql
 * `CREATE DATABASE wildlife_tracker;`
