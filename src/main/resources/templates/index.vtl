@@ -41,7 +41,7 @@
 
 
 
-    <h4>Additional Info for Endangered Animals:</h4>
+    <!-- <h4>Additional Info for Endangered Animals:</h4>
 
     <label>Health</label>
     <select name="health">
@@ -55,7 +55,7 @@
       <option>Newborn</option>
       <option>Young</option>
       <option>Adult</option>
-    </select>
+    </select> -->
 
 
 
@@ -64,6 +64,20 @@
   #end
 </form>
 <hr>
+
+<h3>Non-Endangered Animal Sightings</h3>
+#if ($animals.size() == 0)
+  <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
+#else
+  #foreach ($animal in $animals)
+    <a href="/animal/$animal.getId()" class="thumbnail">
+      <h4>$animal.getName()</h4>
+      <h4>$animal.getSightings().size() Reported Sighting(s)</h4>
+      <p>Click for details</p>
+    </a>
+  #end
+#end
+
 
 <h3>Endangered Animal Sightings</h3>
 
@@ -74,19 +88,6 @@
     <a href="/endangered_animal/$endangeredAnimal.getId()" class="thumbnail">
       <h4>$endangeredAnimal.getName()</h4>
       <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>
-      <p>Click for details</p>
-    </a>
-  #end
-#end
-
-<h3>All Animals & Sightings</h3>
-#if ($animals.size() == 0)
-  <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
-#else
-  #foreach ($animal in $animals)
-    <a href="/animal/$animal.getId()" class="thumbnail">
-      <h4>$animal.getName()</h4>
-      <h4>$animal.getSightings().size() Reported Sighting(s)</h4>
       <p>Click for details</p>
     </a>
   #end

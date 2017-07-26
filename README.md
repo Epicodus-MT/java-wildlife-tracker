@@ -89,7 +89,6 @@ _App tracks two categories of wildlife - animals & endangered-animals_
 * _added constants to EndangeredAnimals.java and Animals.java files_
 * _added Timestamp to database/README.md setup (and made changes to Timestamp related files)_
 * _added boolean to identify endangered vs. non-endangered animals_
-* _move "Additional Info for Endangered Animals" to homepage_
 
 ## Known Bugs
 _No known bugs at this time_
